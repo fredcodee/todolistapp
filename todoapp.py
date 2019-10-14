@@ -1,3 +1,4 @@
+import datetime
 from flask import Flask, render_template, request, url_for,redirect
 from flask_sqlalchemy import SQLAlchemy
 
@@ -13,11 +14,13 @@ class Todo(db.Model):
 
 @app.route("/")
 def index():
+  cd = datetime.datetime.now()
+  web_date = "%s,%s %s %s" % (cd.strftime(
+      "%A"), cd.strftime("%d"), cd.strftime("%B"), cd.strftime("%Y"))
   cards = Todo.query.filter_by(completed=False).all()
   crushed= Todo.query.filter_by(completed=True).all()
-  alldb = Todo.query.all()
 
-  return(render_template('layout.html', cards = cards, crushed= crushed, all = alldb))
+  return(render_template('main.html', cards = cards, crushed= crushed,date= web_date))
 
 @app.route("/add", methods=["POST"])
 def add():

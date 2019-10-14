@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Daily Track</title>
+  <link href="https://fonts.googleapis.com/css?family=Handlee|Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="/static/wolf.png" width="60" height="60" class="d-inline-block align-top"
+        alt="">
+      Daily Goals
+    </a>
+  </nav>
+  <header>
+    <h3>{{ date }}</h3>
+  </header>
+  <div class="con">
+    <form action="{{ url_for('add')}}" method="post">
+      <input type="text" name="card" placeholder=" Add an activity">
+      <button>submit</button>
+    </form>
+    <div>
+      <h2>Today's Goals</h2>
+      <ul>
+        {% for list in cards %}
+        <li class="list-group-item">{{list.text}}<a href="{{ url_for('complete', id=list.id) }}"><button class="done">Done</button></a><a href="{{ url_for('delete', id=list.id) }}"><button class="delete">Delete</button></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2>Crushed</h2>
+      <ul>
+        {% for list in crushed %}
+        <li><img src="/static/checked.jpg" width="30" height="30"> {{list.text}}<a href="{{ url_for('delete', id=list.id) }}"><button class="delete">Delete</button></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

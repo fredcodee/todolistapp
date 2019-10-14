@@ -1,0 +1,39 @@
+body header {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+body header h3 {
+  font-size: 2rem;
+}
+
+.con {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.con h2 {
+  font-family: "Poppins", sans-serif;
+  padding-top: 5px;
+}
+
+.con li {
+  font-family: "Handlee", cursive;
+  list-style: none;
+  padding: 4px;
+}
+
+.con li button {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.con li .done:hover {
+  background-color: #9feb9f;
+}
+
+.con li .delete:hover {
+  background-color: #f37b7b;
+}
+/*# sourceMappingURL=main.css.map */

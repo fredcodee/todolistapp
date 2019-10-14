@@ -1,0 +1,25 @@
+$headfontfamily:'Poppins', sans-serif;
+$subfontfamily:'Handlee',cursive;
+
+body {
+  header{
+  text-align: center;
+  font-family: $headfontfamily;
+  h3{font-size: 2rem;}
+  }
+}
+.con{
+  width: 50%;
+  margin: auto;
+  h2{font-family: $headfontfamily;
+  padding-top: 5px;}
+  li{font-family: $subfontfamily;
+  list-style: none;
+  padding: 4px;
+  button{margin-left: 4px; font-size: 12px;}
+  .done:hover {
+  background-color: rgb(159, 235, 159);
+  }
+  .delete:hover{background-color: rgb(243, 123, 123);}}
+  text-align: center;
+}
